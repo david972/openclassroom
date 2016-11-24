@@ -23,7 +23,7 @@ import fr.bluelabs.resources.logs.Log;
 public class ConfigBean implements Serializable
 {
         private static final long       serialVersionUID        = 3792313931673634007L;
-        private Config                          config;
+        private Config                  config;
 
         static
         {
@@ -54,6 +54,10 @@ public class ConfigBean implements Serializable
                 {
                         configDAO.create(config);
                         message = new FacesMessage(Bundle.getString("config.recorded"));
+			if (message)
+			{
+				System.out.println("Ajout de texte dans le fichier pour le MOOC");
+			}
                 }
                 catch (EJBException e)
                 {
